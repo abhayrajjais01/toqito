@@ -46,6 +46,43 @@ def is_normal(mat: np.ndarray, rtol: float = 1e-05, atol: float = 1e-08) -> bool
 
      is_normal(A)
 
+    Quantum gates are typically unitary matrices, and all unitary matrices are normal. For example,
+    the Pauli-X gate (quantum NOT gate) is a normal matrix:
+
+    .. math::
+        X = \begin{pmatrix}
+                0 & 1 \\
+                1 & 0
+            \end{pmatrix}
+
+    .. jupyter-execute::
+
+     import numpy as np
+     from toqito.matrix_props import is_normal
+
+     # Pauli-X gate
+     pauli_x = np.array([[0, 1], [1, 0]])
+
+     is_normal(pauli_x)
+
+    Similarly, the Hadamard gate, which creates superposition states, is also normal:
+
+    .. math::
+        H = \frac{1}{\sqrt{2}} \begin{pmatrix}
+                1 & 1 \\
+                1 & -1
+            \end{pmatrix}
+
+    .. jupyter-execute::
+
+     import numpy as np
+     from toqito.matrix_props import is_normal
+
+     # Hadamard gate
+     hadamard = (1/np.sqrt(2)) * np.array([[1, 1], [1, -1]])
+
+     is_normal(hadamard)
+
     Alternatively, the following example matrix :math:`B` defined as
 
     .. math::
