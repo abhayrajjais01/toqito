@@ -54,6 +54,32 @@ def is_unitary(mat: np.ndarray, rtol: float = 1e-05, atol: float = 1e-08) -> boo
 
      is_unitary(mat)
 
+    Multi-qubit quantum gates are also unitary. For example, the CNOT (Controlled-NOT) gate,
+    which is fundamental for quantum entanglement, is a 2-qubit unitary operator:
+
+    .. math::
+        \text{CNOT} = \begin{pmatrix}
+                1 & 0 & 0 & 0 \\
+                0 & 1 & 0 & 0 \\
+                0 & 0 & 0 & 1 \\
+                0 & 0 & 1 & 0
+            \end{pmatrix}
+
+    .. jupyter-execute::
+
+     import numpy as np
+     from toqito.matrix_props import is_unitary
+
+     # CNOT gate (2-qubit gate)
+     cnot = np.array([
+         [1, 0, 0, 0],
+         [0, 1, 0, 0],
+         [0, 0, 0, 1],
+         [0, 0, 1, 0]
+     ])
+
+     is_unitary(cnot)
+
     Alternatively, the following example matrix :math:`B` defined as
 
     .. math::
